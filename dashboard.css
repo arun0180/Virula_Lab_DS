@@ -1,0 +1,202 @@
+/* ======== DASHBOARD LAYOUT ======== */
+
+.dash-body {
+  margin: 0;
+  background: #f5f9ff;
+  display: flex;
+  font-family: 'Inter', sans-serif;
+}
+
+/* SIDEBAR */
+.sidebar {
+  width: 240px;
+  background: #0c1b33;
+  color: #fff;
+  min-height: 100vh;
+  padding: 30px 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sb-title {
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 30px;
+  letter-spacing: 1px;
+}
+
+.sb-items {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.sb-item {
+  padding: 12px 14px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #d6e3ff;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.sb-item:hover {
+  background: rgba(255,255,255,0.12);
+}
+
+.sb-item.active {
+  background: #1f3ca3;
+}
+
+.sb-footer {
+  padding: 12px;
+  text-align: center;
+  font-size: 14px;
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+/* DASHBOARD MAIN CONTENT */
+.dashboard {
+  flex: 1;
+  padding: 40px 50px;
+}
+
+.dash-header h1 {
+  margin: 0;
+  font-size: 32px;
+  color: #112a46;
+}
+
+.dash-header .subtitle {
+  margin-top: 6px;
+  color: #6c7d99;
+  font-size: 15px;
+}
+
+/* GRID */
+.exp-grid {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 26px;
+}
+
+/* CARDS */
+.exp-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 30px 22px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  cursor: pointer;
+  transition: 0.3s;
+  border: 1px solid #eef3ff;
+}
+
+.exp-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+
+.exp-card h3 {
+  margin: 16px 0 8px;
+  color: #163060;
+}
+
+.exp-card p {
+  font-size: 14px;
+  color: #5b6b84;
+}
+
+/* ICONS */
+.exp-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #4c8aff, #2a60ff);
+}
+
+/* Different color sets for categories */
+.exp-icon.sorting { background: linear-gradient(135deg, #4c8aff, #2a60ff); }
+.exp-icon.stack { background: linear-gradient(135deg, #ff7a59, #ff4f1d); }
+.exp-icon.queue { background: linear-gradient(135deg, #28d7a0, #14a16b); }
+.exp-icon.linked { background: linear-gradient(135deg, #ffb74d, #ff9800); }
+.exp-icon.bst { background: linear-gradient(135deg, #8e44ad, #6c1b9a); }
+.exp-icon.tree { background: linear-gradient(135deg, #66b82b, #3e7d0e); }
+.exp-icon.graph { background: linear-gradient(135deg, #0099cc, #006699); }
+
+
+
+/* === Simulation Tabs === */
+.sim-layout {
+  display: flex;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.sim-tabs {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tab-btn {
+  padding: 12px;
+  font-size: 15px;
+  background: #ffffff;
+  border: 1px solid #dbe5ff;
+  border-radius: 10px;
+  text-align: left;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.tab-btn:hover {
+  background: #e9f1ff;
+  transform: translateX(5px);
+}
+
+.sim-content {
+  flex: 1;
+}
+
+
+/* ---------------------- ANIMATIONS ---------------------- */
+
+/* Card hover fade/float */
+.exp-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.exp-card:hover {
+  transform: translateY(-8px) scale(1.02);
+}
+
+/* Fade-in for pages */
+.dashboard, .sim-layout {
+  animation: fadeIn 0.55s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Tab button slide */
+.tab-btn {
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.tab-btn:hover {
+  transform: translateX(8px);
+}
+
+/* Simulation canvas zoom animation */
+.visual, svg, canvas {
+  transition: all 0.4s ease;
+}

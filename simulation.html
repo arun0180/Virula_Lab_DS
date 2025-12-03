@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Simulation — DS Virtual Lab</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="nav-left">
+      <div class="logo-circle">AB</div>
+      <div>
+        <div class="brand-title">Data Structures Virtual Lab</div>
+        <div class="brand-sub">Simulation workspace</div>
+      </div>
+    </div>
+    <div class="nav-right">
+      <a href="index.html" class="nav-link">Dashboard</a>
+      <a href="DS.html" class="nav-link">About Lab</a>
+      <button id="themeToggle">Dark mode</button>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="sim-header">
+      <h2 id="exp-name">Loading experiment…</h2>
+      <p id="module-subtitle" class="subtitle"></p>
+    </section>
+
+    <!-- Horizontal Tabs -->
+    <nav class="tab-bar" id="tab-bar">
+      <!-- built by app.js -->
+    </nav>
+
+    <!-- Main content -->
+    <section id="content-area" class="card">
+      Loading...
+    </section>
+  </main>
+
+  <footer class="footer">© 2025 Arun Biradar — Data Structures Virtual Lab</footer>
+
+  <script src="app.js"></script>
+  <script>
+    // dark mode
+    const btn = document.getElementById('themeToggle');
+    function applyTheme() {
+      if (localStorage.getItem('theme') === 'dark') {
+        document.body.classList.add('dark');
+        btn.textContent = 'Light mode';
+      } else {
+        document.body.classList.remove('dark');
+        btn.textContent = 'Dark mode';
+      }
+    }
+    btn.addEventListener('click', () => {
+      const current = localStorage.getItem('theme');
+      localStorage.setItem('theme', current === 'dark' ? 'light' : 'dark');
+      applyTheme();
+    });
+    applyTheme();
+  </script>
+</body>
+</html>

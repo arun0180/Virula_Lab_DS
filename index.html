@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Data Structures Virtual Lab</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Horizontal navbar -->
+  <header class="navbar">
+    <div class="nav-left">
+      <div class="logo-circle">AB</div>
+      <div>
+        <div class="brand-title">Data Structures Virtual Lab</div>
+        <div class="brand-sub">Interactive simulations for core DS</div>
+      </div>
+    </div>
+    <div class="nav-right">
+      <a href="index.html" class="nav-link active">Dashboard</a>
+      <a href="DS.html" class="nav-link">About Lab</a>
+      <button id="themeToggle">Dark mode</button>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="hero">
+      <h1>Data Structures Experiments</h1>
+      <p>Select any experiment tile to open its simulation.</p>
+    </section>
+
+    <section class="exp-grid">
+  
+  <button class="exp-btn" onclick="openExp('sorting')">
+    <div class="exp-icon sorting"></div>
+    <span>Sorting Visualizer</span>
+  </button>
+
+  <button class="exp-btn" onclick="openExp('stack')">
+    <div class="exp-icon stack"></div>
+    <span>Stack Operations</span>
+  </button>
+
+  <button class="exp-btn" onclick="openExp('queue')">
+    <div class="exp-icon queue"></div>
+    <span>Queue Operations</span>
+  </button>
+
+  <button class="exp-btn" onclick="openExp('linkedlist')">
+    <div class="exp-icon ll"></div>
+    <span>Linked List</span>
+  </button>
+
+  <button class="exp-btn" onclick="openExp('bst')">
+    <div class="exp-icon bst"></div>
+    <span>Binary Search Tree</span>
+  </button>
+
+  <button class="exp-btn" onclick="openExp('tree')">
+    <div class="exp-icon tree"></div>
+    <span>Tree Traversals</span>
+  </button>
+
+  <button class="exp-btn" onclick="openExp('graph')">
+    <div class="exp-icon graph"></div>
+    <span>Graph Traversal</span>
+  </button>
+
+</section>
+
+  </main>
+
+  <footer class="footer">© 2025 Arun Biradar — Data Structures Virtual Lab</footer>
+
+  <script>
+    // open experiment
+    function openExp(mod) {
+      location.href = 'simulation.html?mod=' + mod;
+    }
+
+    // dark mode toggle
+    const btn = document.getElementById('themeToggle');
+    function applyTheme() {
+      if (localStorage.getItem('theme') === 'dark') {
+        document.body.classList.add('dark');
+        btn.textContent = 'Light mode';
+      } else {
+        document.body.classList.remove('dark');
+        btn.textContent = 'Dark mode';
+      }
+    }
+    btn.addEventListener('click', () => {
+      const current = localStorage.getItem('theme');
+      localStorage.setItem('theme', current === 'dark' ? 'light' : 'dark');
+      applyTheme();
+    });
+    applyTheme();
+  </script>
+</body>
+</html>

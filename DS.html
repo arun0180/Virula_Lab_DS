@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About — DS Virtual Lab</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="nav-left">
+      <div class="logo-circle">AB</div>
+      <div>
+        <div class="brand-title">Data Structures Virtual Lab</div>
+        <div class="brand-sub">Project information</div>
+      </div>
+    </div>
+    <div class="nav-right">
+      <a href="index.html" class="nav-link">Dashboard</a>
+      <a href="DS.html" class="nav-link active">About Lab</a>
+      <button id="themeToggle">Dark mode</button>
+    </div>
+  </header>
+
+  <main class="page">
+    <article class="card">
+      <h2>About the Lab</h2>
+      <p><strong>Title:</strong> Design and Development of a Data Structures Virtual Lab (DSVL) for Interactive Learning and Visualization</p>
+      <p><strong>Developer:</strong> Arun Biradar</p>
+      <p>This virtual lab provides interactive simulations for core data structures including Sorting, Stack, Queue, Linked List, Binary Search Tree, Tree Traversals and Graph Traversals. It helps students visualise internal operations through animations, practice activities and tests.</p>
+    </article>
+  </main>
+
+  <footer class="footer">© 2025 Arun Biradar — Data Structures Virtual Lab</footer>
+
+  <script>
+    const btn = document.getElementById('themeToggle');
+    function applyTheme() {
+      if (localStorage.getItem('theme') === 'dark') {
+        document.body.classList.add('dark');
+        btn.textContent = 'Light mode';
+      } else {
+        document.body.classList.remove('dark');
+        btn.textContent = 'Dark mode';
+      }
+    }
+    btn.addEventListener('click', () => {
+      const current = localStorage.getItem('theme');
+      localStorage.setItem('theme', current === 'dark' ? 'light' : 'dark');
+      applyTheme();
+    });
+    applyTheme();
+  </script>
+</body>
+</html>
